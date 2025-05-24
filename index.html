@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gaurav Rai | Software Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <h1 class="logo">Gaurav.</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero dark" id="home">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h2>Hi, I'm <span>Gaurav Rai</span></h2>
+        <h3>Software Developer</h3>
+        <p>
+                Motivated and skilled software developer with strong expertise in C++ programming, data structures, and object-oriented design. Passionate about solving complex problems, delivering scalable software solutions, and contributing to team success.
+</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn primary">Hire Me</a>
+          <a href="mailto:gauravrai85008@gmail.com" class="btn outline">Let's Talk</a>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/gaurav-rai-52403a289" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/usergaurav" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/my-image.jpg" alt="Gaurav Rai" />
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <p>
+      I have completed my MCA from Lovely Professional University and hold a BCA from Ranchi University. I have a solid foundation in programming with C++, Java, and Python, and I've built several management systems and games. I enjoy tackling complex problems and working on impactful projects.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project" onclick="openModal(0)">
+        <img src="images/ecommerce.jpg" alt="E-Commerce Management System" />
+        <h3>E-Commerce Management System</h3>
+        <p>Built with C++ and SQL, featuring product management and robust file handling.</p>
+      </div>
+      <div class="project" onclick="openModal(1)">
+        <img src="images/carrental.png" alt="Car Rental Management System" />
+        <h3>Car Rental Management System</h3>
+        <p>Reservation system using OOP principles in C++ for modular, persistent storage.</p>
+      </div>
+      <div class="project" onclick="openModal(2)">
+        <img src="images/image.png" alt="Brick Breaker Game" />
+        <h3>Brick Breaker Game</h3>
+        <p>Java Swing game with paddle mechanics and collision detection.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +91 9934815477</p>
+      <p><strong>Email:</strong> <a href="mailto:gauravrai85008@gmail.com">gauravrai85008@gmail.com</a></p>
+    </div>
+    <form id="contact-form">
+      <input type="text" name="name" id="name" placeholder="Your Name" required />
+      <input type="email" name="email" id="email" placeholder="Your Email" required />
+      <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Modal for project details -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script>
+    const projects = [
+      {
+        title: "E-Commerce Management System (May 2024)",
+        img: "images/ecommerce.jpg",
+        desc: `
+          <strong>Technology Stack:</strong> C++, SQL, and structured programming.<br><br>
+          Developed an advanced e-commerce management system to handle product inventory, customer data, and order processing.<br><br>
+          Utilized C++ for core logic, integrating SQL for database operations to ensure efficient data storage and retrieval.<br><br>
+          Designed modules for adding, updating, and searching products and managing customer orders.<br><br>
+          Implemented robust file handling for maintaining logs and backup data in case of system failure.<br><br>
+          Focused on providing smooth user experience with a console-based interface.
+        `
+      },
+      {
+        title: "Car Rental Management System (Nov 2023)",
+        img: "images/carrental.png",
+        desc: `
+          <strong>Technology Stack:</strong> C++, OOP Principles, File Handling<br><br>
+          Built a modular car rental management system using C++ with OOP principles.<br><br>
+          Integrated features for reservation handling, customer profile management, and booking operations.<br><br>
+          Ensured data persistence through robust file handling mechanisms.<br><br>
+          Applied encapsulation, inheritance, and polymorphism to achieve a scalable and maintainable codebase.
+        `
+      },
+      {
+        title: "Brick Breaker Game (May 2023)",
+        img: "images/image.png",
+        desc: `
+          <strong>Technology Stack:</strong> Java, Java Swing, AWT<br><br>
+          Recreated the classic arcade-style Brick Breaker game using Java Swing and AWT.<br><br>
+          Implemented game physics for paddle movement and collision detection.<br><br>
+          Ensured a responsive and engaging gameplay experience through efficient event handling.
+        `
+      }
+    ];
+
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalImg = document.getElementById("modal-img");
+    const modalDesc = document.getElementById("modal-desc");
+
+    function openModal(index) {
+      const project = projects[index];
+      modalTitle.textContent = project.title;
+      modalImg.src = project.img;
+      modalImg.alt = project.title;
+      modalDesc.innerHTML = project.desc;
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+</body>
+</html>
